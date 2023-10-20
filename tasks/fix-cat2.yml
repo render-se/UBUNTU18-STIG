@@ -1249,7 +1249,7 @@
     "MEDIUM | UBTU-18-010306 | PATCH | The Ubuntu operating system must permit only authorized accounts ownership of the audit log files."
     "MEDIUM | UBTU-18-010307 | PATCH | The Ubuntu operating system must permit only authorized groups to own the audit log files."
   ansible.builtin.file:
-      path: "{{ ubtu_18_audit_log_path.stdout }}"
+      path: "{{ ubtu_18_audit_log_path }}"
       owner: "{{ ubtu_18_010306 | ternary('root',omit) }}"
       group: "{{ ubtu_18_010307 | ternary('root',omit) }}"
       mode: "{{ ubtu_18_010305 | ternary(ubtu18stig_audit_log_files,omit) }}"
@@ -1279,7 +1279,7 @@
     "MEDIUM | UBTU-18-010309 | PATCH | The Ubuntu operating system must allow only authorized accounts to own the audit log directory."
     "MEDIUM | UBTU-18-010310 | PATCH | The Ubuntu operating system must ensure only authorized groups can own the audit log directory and its underlying files."
   ansible.builtin.file:
-      path: "{{ ubtu_18_audit_log_path.stdout }}"
+      path: "{{ ubtu_18_audit_log_path }}"
       owner: "{{ ubtu_18_010309 | ternary('root',omit) }}"
       group: "{{ ubtu_18_010310 | ternary('root',omit) }}"
       mode: "{{ ubtu_18_010308 | ternary(ubtu18stig_audit_log_dirs,omit) }}"

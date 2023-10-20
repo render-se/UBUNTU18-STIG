@@ -11,6 +11,8 @@
       - name: "PRELIM | {{ ubtu18stig_passwd_tasks }} | Split passwd entries"
         ansible.builtin.set_fact:
             ubtu18stig_passwd: "{{ ubtu18stig_passwd_file_audit.stdout_lines | map('regex_replace', ld_passwd_regex, ld_passwd_yaml) | map('from_yaml') | list }}"
+            # Making this fact cacheable so it can be used in individual task execution.
+            cacheable: true
 
         with_items: "{{ ubtu18stig_passwd_file_audit.stdout_lines }}"
         vars:

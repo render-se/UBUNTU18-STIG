@@ -173,3 +173,9 @@
         ubtu_18_010306 or
         ubtu_18_010307 or
         ubtu_18_010308
+
+# Adding this fact so it can be used in individual task execution.
+- name: "Set ubtu_18_audit_log_path"
+  set_fact:
+    ubtu_18_audit_log_path: "{{ ubtu_18_audit_log_path.stdout }}"
+    cacheable: true
